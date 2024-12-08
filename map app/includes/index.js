@@ -1,5 +1,4 @@
 
-var req = pm
 const key = 'oKElpFQEJAR63mwH9eO6';
 const map = L.map('map');
 
@@ -15,4 +14,5 @@ L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}
 var latitude = 21.0061832;
 var longtitude = 105.8431307;
 
+var marker = L.marker([latitude, longtitude]).addTo(map);
 map.setView([latitude, longtitude],20)

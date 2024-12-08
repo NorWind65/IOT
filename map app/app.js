@@ -10,21 +10,27 @@ app.use(express.static('includes'));
 // Define a route to serve the HTML file
 
 
-
 app.get('/includes/index.js', function(req, res) {
     res.sendFile(path.join(__dirname + '/includes/index.js'));
 });
 
 app.get('/', (req, res) => {
-    if(!req.body.latitude){
-        console.log(req.body.latitude);
+    if(req.body.latitude !== null &&req.body.longtitude !== null){
+    
+
+        var data  = {
+            latitude: req.body.latitude,
+            longtitude: req.body.longtitude
+        }
+    }else{
+        var data  = {
+            latitude: '21.0061832',
+            longtitude: '105.8431307'
+        }
     }
-    if(!req.body.longtitude){
-        console.log(req.body.longtitude);
-    }    
+   
     res.sendFile(path.join(__dirname, 'test.html'));
 });
-
 
 // Start the server
 const PORT = process.env.PORT || 3000;
